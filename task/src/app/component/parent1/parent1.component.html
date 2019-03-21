@@ -1,0 +1,32 @@
+<div style="text-align: center">
+    <button (click)="switchpage1()">page1</button>
+    <button (click)="switchpage2()">page2</button>
+</div>
+<br>
+<div style="display: flex">
+    <span><app-child1></app-child1></span>
+
+    <span style="right: 0px;position: absolute;"><app-child2></app-child2></span>
+
+</div>
+<br>
+<button (click)="popup()">Preview</button>
+
+<div class="form-popup" id="myForm">
+    <form action="/action_page.php" class="form-container">
+        <h1>Login</h1>
+
+        <label for="email"><b>Input 1</b></label>&nbsp;
+        <input type="text" placeholder="Input" name="input" [(ngModel)]="input1" required>
+
+        <label for="psw"><b>Input 2</b></label>&nbsp;
+        <input type="text" placeholder="Input" name="input" [(ngModel)]="input2" required>
+        <br>
+
+        <button type="submit" style="background: dodgerblue;" (click)="visibleinputvalue=true" class="btn">Submit</button>&nbsp;&nbsp;
+        <button type="button" style="background: limegreen;" class="btn cancel" (click)="closeForm()">Close</button>
+    </form>
+</div>
+<div *ngIf="visibleinputvalue">
+    Input 1 = {{input1}}<br> Input 2 = {{input2}}
+</div>
